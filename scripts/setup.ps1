@@ -80,6 +80,29 @@ if (Test-Path "$sourceDir\.git") {
     git clone https://github.com/prarsena/cs180-source-code.git "$sourceDir"
 }
 
+# --- STEP X: CUSTOMIZE TERMINAL PROMPT ---
+Write-Host "🎨 Customizing Terminal prompt..." -ForegroundColor Cyan
+
+# Define the function as a string
+$profileContent = @"
+function prompt { 
+    `$Drive = (Get-Location).Drive.Name
+    `$Leaf = Split-Path -Path `$PWD -Leaf
+    "PS `$Drive:\`$Leaf> "
+}
+"@
+
+# Check if the user has a profile; if not, create it
+if (!(Test-Path $PROFILE)) {
+    New-Item -ItemType File -Path $PROFILE -Force
+}
+
+# Append the prompt function if it's not already there
+if (!(Select-String -Path $PROFILE -Pattern "function prompt")) {
+    Add-Content -Path $PROFILE -Value "`n$profileContent"
+    Write-Host "   Short prompt added to `$PROFILE." -ForegroundColor Green
+}
+
 # --- STEP 6: GENERATE WINDOWS-SPECIFIC SETTINGS ---
 $settingsDir = "$sourceDir\.vscode"
 if (!(Test-Path $settingsDir)) { New-Item -ItemType Directory -Path $settingsDir }
@@ -91,7 +114,14 @@ $settingsContent = @'
     "code-runner.clearPreviousOutput": true,
     "code-runner.saveFileBeforeRun": true,
     "code-runner.executorMap": {
-        "java": "java --enable-preview $fileName"
+        "java": "cd $dir && java $fileName"
+    },
+    "terminal.integrated.defaultProfile.windows": "PowerShell",
+    "terminal.integrated.profiles.windows": {
+        "PowerShell": {
+            "source": "PowerShell",
+            "args": ["-NoExit", "-ExecutionPolicy", "Bypass"]
+        }
     },
     "java.configuration.runtimes": [
         {
@@ -103,6 +133,7 @@ $settingsContent = @'
     "java.view.package.enabled": false,
     "editor.inlineSuggest.enabled": false,
     "editor.suggest.showInlineDetails": false,
+    "editor.minimap.enabled": false,
     "chat.mcp.gallery.enabled": false,
     "vsintellicode.modify.editor.suggestSelection": "disabled"
 }
