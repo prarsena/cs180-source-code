@@ -7,7 +7,7 @@
 For Mac, open Terminal and paste this command: 
 
 ```bash
-curl -sSL https://raw.githubusercontent.com/your-username/my-java-course/main/scripts/setup.sh | bash
+curl -sSL https://raw.githubusercontent.com/prarsena/cs180-source-code/main/scripts/setup.sh | bash
 ```
 
 Notes:
@@ -22,19 +22,19 @@ Notes:
 For Windows, search for PowerShell. Right-click PowerShell and select Run as Administrator. Then paste this command:
 
 ```powershell
-irm https://raw.githubusercontent.com/your-username/my-java-course/main/scripts/setup.ps1 | iex
+irm https://raw.githubusercontent.com/prarsena/cs180-source-code/main/scripts/setup.ps1 | iex
 ```
 
 If you get a red "Running scripts is disabled on this system" error, use this "One-Time Unlock" command and then run the above command again:
 
 ```powershell
 Set-ExecutionPolicy Bypass -Scope Process -Force
-irm https://raw.githubusercontent.com/your-username/my-java-course/main/scripts/setup.ps1 | iex
+irm https://raw.githubusercontent.com/prarsena/cs180-source-code/main/scripts/setup.ps1 | iex
 ```
 
 ## Auditing the script
 
-If you are security-minded (that's good!) and want to be sure the script I'm telling you to run is safe:
+If you want ensure the script I'm telling you to run is safe:
 
 1. **Read the comments**: Every major action is explained in green/gray text.
 2. **Verify the URLs**: The scripts pull from official sources:

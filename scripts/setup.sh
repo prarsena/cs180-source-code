@@ -79,7 +79,7 @@ if [ -d "$TARGET_DIR/.git" ]; then
     git pull
 else
     echo "   Cloning course materials..."
-    git clone https://github.com/your-username/my-java-course.git "$TARGET_DIR"
+    git clone https://github.com/prarsena/cs180-source-code.git "$TARGET_DIR"
 fi
 
 # --- STEP 6: GENERATE MAC-SPECIFIC SETTINGS ---

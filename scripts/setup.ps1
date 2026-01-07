@@ -12,7 +12,7 @@
     5. Opens the project in VS Code.
 
 .NOTES
-    Author: Your Name / CS180 Staff
+    Author: Peter Arsenault / CS180 
     Usage: Run in PowerShell as Administrator.
 #>
 
@@ -77,7 +77,7 @@ if (Test-Path "$sourceDir\.git") {
     git pull
 } else {
     Write-Host "   Cloning course materials..." -ForegroundColor Green
-    git clone https://github.com/your-username/my-java-course.git "$sourceDir"
+    git clone https://github.com/prarsena/cs180-source-code.git "$sourceDir"
 }
 
 # --- STEP 6: GENERATE WINDOWS-SPECIFIC SETTINGS ---
