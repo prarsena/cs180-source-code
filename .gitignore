@@ -1,0 +1,14 @@
+# Ignore sensitive folders
+./final-review
+
+# Ignore the dynamically generated settings
+.vscode/settings.json
+
+# BUT, do NOT ignore the recommendations file
+# We want everyone to get the prompt to install Red Hat Java
+!.vscode/extensions.json
+
+# Standard Java ignores
+*.class
+*.jar
+*.war

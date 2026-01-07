@@ -1,0 +1,14 @@
+{
+    "recommendations": [
+        "redhat.java",              // The specific "Red Hat" extension
+        "formulahendry.code-runner" // The "Run" button
+    ],
+    "unwantedRecommendations": [
+        "vscjava.vscode-java-pack",  // BLOCKS the full pack recommendation
+        "vscjava.vscode-java-debug", // BLOCKS the debugger
+        "vscjava.vscode-java-test",  // BLOCKS the test runner
+        "vscjava.vscode-maven",      // BLOCKS Maven
+        "github.copilot",            // BLOCKS Copilot
+        "github.copilot-chat"
+    ]
+}
