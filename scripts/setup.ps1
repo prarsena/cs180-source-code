@@ -88,7 +88,7 @@ $profileContent = @"
 function prompt { 
     `$Drive = (Get-Location).Drive.Name
     `$Leaf = Split-Path -Path `$PWD -Leaf
-    "PS `$Drive:\`$Leaf> "
+    "PS `${Drive}:\`$Leaf> "
 }
 "@
 
@@ -111,10 +111,11 @@ $settingsContent = @'
 {
     "code-runner.runInTerminal": true,
     "code-runner.showExecutionMessage": false,
-    "code-runner.clearPreviousOutput": true,
+    "code-runner.clearPreviousOutput": false,
     "code-runner.saveFileBeforeRun": true,
+    "terminal.integrated.lineHeight": 1.2,
     "code-runner.executorMap": {
-        "java": "cd $dir && java $fileName"
+        "java": "cls; cd $dir; java $fileName"
     },
     "terminal.integrated.defaultProfile.windows": "PowerShell",
     "terminal.integrated.profiles.windows": {
