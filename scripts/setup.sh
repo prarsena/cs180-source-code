@@ -123,13 +123,6 @@ cat <<EOF > "$TARGET_DIR/.vscode/settings.json"
         "java": "clear; cd \$dir; java \$fileName"
     },
     "terminal.integrated.defaultProfile.osx": "zsh",
-    "java.configuration.runtimes": [
-        {
-            "name": "JavaSE-25",
-            "path": "$BREW_JAVA_PATH",
-            "default": true
-        }
-    ],
     "editor.minimap.enabled": false,
     "java.view.package.enabled": false,
     "editor.inlineSuggest.enabled": false,
