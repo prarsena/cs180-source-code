@@ -1,6 +1,3 @@
-# Ignore sensitive folders
-./final-review
-
 # Ignore the dynamically generated settings
 .vscode/settings.json
 

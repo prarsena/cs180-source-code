@@ -85,16 +85,17 @@ code --install-extension formulahendry.code-runner --force
 mkdir -p "$TARGET_DIR/.vscode"
 BREW_JAVA_PATH=$(brew --prefix openjdk)
 
-# Note: The backslash before $fullFileName prevents the script from trying to read it as a variable
 cat <<EOF > "$TARGET_DIR/.vscode/settings.json"
 {
     "code-runner.runInTerminal": true,
     "code-runner.showExecutionMessage": false,
-    "code-runner.clearPreviousOutput": true,
+    "code-runner.clearPreviousOutput": false,
     "code-runner.saveFileBeforeRun": true,
+    "terminal.integrated.lineHeight": 1.2,
     "code-runner.executorMap": {
         "java": "clear; cd \$dir; java \$fileName"
     },
+    "terminal.integrated.defaultProfile.osx": "zsh",
     "java.configuration.runtimes": [
         {
             "name": "JavaSE-25",
@@ -106,7 +107,8 @@ cat <<EOF > "$TARGET_DIR/.vscode/settings.json"
     "java.view.package.enabled": false,
     "editor.inlineSuggest.enabled": false,
     "editor.suggest.showInlineDetails": false,
-    "chat.mcp.gallery.enabled": false
+    "chat.mcp.gallery.enabled": false,
+    "vsintellicode.modify.editor.suggestSelection": "disabled"
 }
 EOF
 

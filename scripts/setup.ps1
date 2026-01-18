@@ -49,17 +49,31 @@ winget install -e --id Oracle.JDK.25 --silent --accept-source-agreements --accep
 # --- STEP 3: CONFIGURE DIRECTORIES ---
 # We use your Bentley OneDrive to ensure your work is backed up automatically.
 
-$oneDrivePath = "$env:USERPROFILE\OneDrive - Bentley University"
-$courseRoot = "$oneDrivePath\CS180"
-$sourceDir = "$courseRoot\source-code"
+# Try multiple common OneDrive locations
+$oneDrivePaths = @(
+    "$env:USERPROFILE\OneDrive - Bentley University",
+    "D:\OneDrive - Bentley University",
+    "$env:OneDrive\..\OneDrive - Bentley University"
+)
 
-Write-Host "📂 checking for directory: $sourceDir" -ForegroundColor Cyan
+$oneDrivePath = $null
+foreach ($path in $oneDrivePaths) {
+    if (Test-Path $path) {
+        $oneDrivePath = $path
+        break
+    }
+}
 
-# Check if the OneDrive folder exists (to prevent errors if not logged in)
-if (-not (Test-Path $oneDrivePath)) {
+# If we found OneDrive, use it; otherwise fall back to Documents
+if ($oneDrivePath) {
+    $courseRoot = "$oneDrivePath\CS180"
+    $sourceDir = "$courseRoot\source-code"
+    Write-Host "📂 checking for directory: $sourceDir" -ForegroundColor Cyan
+} else {
     Write-Warning "⚠️ Could not find 'OneDrive - Bentley University'."
     Write-Host "   Defaulting to your local Documents folder instead."
     $sourceDir = "$env:USERPROFILE\Documents\CS180\source-code"
+    Write-Host "📂 checking for directory: $sourceDir" -ForegroundColor Cyan
 }
 
 # Create the folder if it doesn't exist
