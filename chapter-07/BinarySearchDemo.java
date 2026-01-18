@@ -41,6 +41,8 @@ public class BinarySearchDemo {
         System.out.print("Do you want to search again? (Y or N): ");
         input = keyboard.nextLine();
       } while (input.charAt(0) == 'y' || input.charAt(0) == 'Y');
+
+      keyboard.close();
    }
 
    /**

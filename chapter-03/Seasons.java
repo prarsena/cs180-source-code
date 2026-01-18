@@ -35,5 +35,7 @@ public class Seasons {
             System.out.println("Please enter one of these words:\n" +
                          "spring, summer, autumn, fall, or winter.");
       }
+
+      keyboard.close();
    }
 }

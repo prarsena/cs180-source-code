@@ -24,5 +24,7 @@ public class RectangularPattern {
          }
          System.out.println();
       }
+
+      keyboard.close();
    }
 } 

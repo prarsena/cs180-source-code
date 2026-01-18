@@ -32,6 +32,8 @@ public class StockTrader {
       // Display the cost of the transaction.
       System.out.printf("Cost of the stock: $%,.2f",
                         buy.getCost());
+
+      keyboard.close();
    }
 }
 

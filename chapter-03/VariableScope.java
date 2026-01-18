@@ -22,5 +22,7 @@ public class VariableScope {
 
       // Display a message.
       System.out.println("Hello " + firstName + " " + lastName);
+
+      keyboard.close();
    }
 }

@@ -32,5 +32,7 @@ public class DisplayTestScores {
       System.out.println("Here are the scores you entered:");
       for (int index = 0; index < tests.length; index++)
          System.out.print(tests[index] + " ");
+
+      keyboard.close();
    }
 }

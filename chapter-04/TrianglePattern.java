@@ -1,5 +1,3 @@
-import java.util.Scanner;
-
 /**
    This program displays a triangle pattern.
 */

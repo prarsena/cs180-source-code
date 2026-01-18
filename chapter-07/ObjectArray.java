@@ -49,5 +49,6 @@ public class ObjectArray {
          // Create the account.
          array[index] = new BankAccount(balance);
       }
+      keyboard.close();
    }
 }

@@ -26,5 +26,7 @@ public class ArrayDemo2 {
       // Display the values entered.
       for (int index = 0; index < EMPLOYEES; index++)
          System.out.println(hours[index]);
+
+      keyboard.close();
    }
 }     

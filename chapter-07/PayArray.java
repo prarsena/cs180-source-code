@@ -38,5 +38,7 @@ public class PayArray {
          System.out.println("Employee #" + (index + 1) +
                             ": $" + grossPay);
       }
+
+      keyboard.close();
    }
 }

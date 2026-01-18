@@ -36,5 +36,7 @@ public class ObjectDemo {
       // Close the file.
       outputFile.close();
       System.out.println("Done");
+
+      keyboard.close();
    }
 }

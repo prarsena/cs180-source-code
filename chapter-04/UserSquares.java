@@ -26,5 +26,7 @@ public class UserSquares {
          System.out.println(number + "\t\t" + 
                             number * number);
       }
+
+      keyboard.close();
    }
 }

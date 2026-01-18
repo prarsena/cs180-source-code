@@ -47,5 +47,7 @@ public class TestAverage1 {
          repeat = input.charAt(0);     // Get the first char.
 
       } while (repeat == 'Y' || repeat == 'y');
+
+      keyboard.close();
    }
 }

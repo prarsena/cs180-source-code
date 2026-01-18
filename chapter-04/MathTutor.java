@@ -42,5 +42,7 @@ public class MathTutor {
                             "The correct answer is " +
                             sum);
       }
+
+      keyboard.close();
    }
 }

@@ -27,5 +27,6 @@ public class LogicalAnd {
          System.out.println("You do not qualify.");
       }
       
+      keyboard.close();
    }
 }

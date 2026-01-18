@@ -37,5 +37,7 @@ public class SoccerPoints {
       // Display the total number of points.
       System.out.println("The total points are " +
                          totalPoints);
+
+      keyboard.close();
    }
 }

@@ -14,5 +14,7 @@ public class NameTester {
 
       // Get the length of the full name.
       len = name.getLength();
+
+      IO.print(len);
    }
 }

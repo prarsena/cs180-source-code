@@ -28,6 +28,6 @@ public class LogicalOr {
          System.out.println("You do not qualify.");
       }
 
-
+      keyboard.close();
    }
 }

@@ -40,6 +40,8 @@ public class CalcAverage {
       // Display the lowest score.
       System.out.println("Your lowest test score was " +
                          myGrader.getLowestScore());
+
+      keyboard.close();
       
    }
 }

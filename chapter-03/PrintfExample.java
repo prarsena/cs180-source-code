@@ -3,7 +3,7 @@ public class PrintfExample {
         
         String name = "Sarah";
         int age = 33;
-        double gpa = 3.76;
+        //double gpa = 3.76;
         String school = "Bentley";
         double salary = 5414987123.8924129;
         System.out.println("Name: " + name + " School: " + school);

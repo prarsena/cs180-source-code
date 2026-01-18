@@ -52,5 +52,7 @@ public class Overtime {
          System.out.println("Employee #" + (index + 1) +
                             ": $" + grossPay);
       }
+
+      keyboard.close();
    }
 }

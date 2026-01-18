@@ -1,9 +1,5 @@
-import java.lang.Runtime.Version;
-import java.security.Key;
 import java.util.ArrayList;
-import java.util.Dictionary;
 import java.util.Enumeration;
-import java.util.Hashtable;
 import java.util.Properties;
 
 public class AboutJava {
@@ -28,8 +24,8 @@ public class AboutJava {
         //     System.out.println(propKeys.get(i) + " : " + propElements.get(i));
         // }
 
-        String javahome = p.getProperty("java.home");
-        String[] jhomePath = javahome.split("/");
+        //String javahome = p.getProperty("java.home");
+        //String[] jhomePath = javahome.split("/");
         //String[] jdkProvider = jhomePath[6].split("-");
 
         //String l1 = jdkProvider[0] + " " + p.getProperty("java.version") + " " + p.getProperty("java.version.date");

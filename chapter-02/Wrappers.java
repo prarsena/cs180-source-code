@@ -4,7 +4,7 @@ public class Wrappers {
         String t = "54";
         int num1 = Integer.parseInt(s);
         int num2 = Integer.parseInt(t);
-        double num3 = Double.parseDouble(t);
+        //double num3 = Double.parseDouble(t);
         
         int total; 
         total = num1 + num2;

@@ -30,5 +30,7 @@ public class CheckTemperature {
       // again in 15 minutes.
       System.out.println("The temperature is acceptable.");
       System.out.println("Check it again in 15 minutes.");
+
+      keyboard.close();
    }
 }

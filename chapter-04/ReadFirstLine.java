@@ -27,5 +27,7 @@ public class ReadFirstLine {
 
       // Close the file.
       inputFile.close();
+
+      keyboard.close();
    }
 }

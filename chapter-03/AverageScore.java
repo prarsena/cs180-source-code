@@ -32,5 +32,7 @@ public class AverageScore {
       // If the average is higher than 95, congratulate the user.
       if (average > 95)
          System.out.println("That's a great score!");
+
+      keyboard.close();
    }
 } 

@@ -24,5 +24,7 @@ public class SecretWord {
          System.out.println("Sorry, that is NOT the " +
                             "secret word!");
       }
+
+      keyboard.close();
    }
 }

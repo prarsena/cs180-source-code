@@ -29,5 +29,6 @@ public class FileReadDemo {
 
       // Close the file.
       inputFile.close();
+      keyboard.close();
    }
 }

@@ -28,5 +28,7 @@ public class Division {
          System.out.print(" divided by " + number2);
          System.out.println(" is " + quotient);
       }
+
+      keyboard.close();
    }
 }

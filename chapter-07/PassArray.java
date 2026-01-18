@@ -1,9 +1,5 @@
-import java.util.Scanner;  // Needed for Scanner class
-
-/**
-   This program demonstrates passing an array
-   as an argument to a method.
-*/
+import java.util.Scanner;
+// This program demonstrates passing an array as an argument to a method.
 
 public class PassArray {
    public static void main(String[] args) {
@@ -22,13 +18,6 @@ public class PassArray {
       showArray(numbers);
    }
 
-   /**
-      The getValues method accepts a reference
-      to an array as its argument. The user is
-      asked to enter a value for each element.
-      @param array A reference to the array.
-   */
-
    private static void getValues(int[] array) {
       // Create a Scanner objects for keyboard input.
       Scanner keyboard = new Scanner(System.in);
@@ -42,13 +31,9 @@ public class PassArray {
                           (index + 1) + ": ");
          array[index] = keyboard.nextInt();
       }
-   }
 
-   /**
-      The showArray method accepts an array as
-      an argument and displays its contents.
-      @param array A reference to the array.
-   */
+      keyboard.close();
+   }
 
    public static void showArray(int[] array) {
       // Display the array elements.

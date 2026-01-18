@@ -1,5 +1,3 @@
-import java.util.Random;
-
 public class MyNotes {
 
     public static void greetUser(String name){

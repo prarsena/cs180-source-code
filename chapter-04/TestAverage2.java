@@ -40,6 +40,8 @@ public class TestAverage2 {
          average = total / numTests;
          System.out.printf("The average for student %d is %.1f.\n\n",
                             student, average);
+
+         keyboard.close();
       }
    }
 }

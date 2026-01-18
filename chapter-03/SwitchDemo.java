@@ -29,5 +29,7 @@ public class SwitchDemo {
          default:
             System.out.println("That's not 1, 2, or 3!");
       }
+
+      keyboard.close();
    }
 }

@@ -28,5 +28,7 @@ public class RollDice {
          System.out.print("Roll them again (y = yes)? ");
          again = keyboard.nextLine();
       }
+
+      keyboard.close();
    }
 }

@@ -37,5 +37,7 @@ public class PetFood {
          default:
             System.out.println("Invalid choice.");
       }
+
+      keyboard.close();
    }
 }
