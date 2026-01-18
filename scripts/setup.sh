@@ -44,7 +44,19 @@ brew install --cask visual-studio-code
 # --- STEP 4: LINK JAVA & TOOLS ---
 echo "🔗 Linking Java 25 to System Paths..."
 # This sudo command allows 'java --version' to work system-wide
-sudo ln -sfn "$(brew --prefix openjdk)/libexec/openjdk.jdk" /Library/Java/JavaVirtualMachines/openjdk.jdk 2>/dev/null
+echo "   You may be prompted for your password to link Java system-wide..."
+if sudo -n true 2>/dev/null; then
+    # Already have sudo privileges
+    sudo ln -sfn "$(brew --prefix openjdk)/libexec/openjdk.jdk" /Library/Java/JavaVirtualMachines/openjdk.jdk 2>/dev/null
+else
+    # Request sudo access, but don't fail the script if user cancels
+    if sudo -v 2>/dev/null; then
+        sudo ln -sfn "$(brew --prefix openjdk)/libexec/openjdk.jdk" /Library/Java/JavaVirtualMachines/openjdk.jdk 2>/dev/null
+        echo "✅ Java linked successfully."
+    else
+        echo "⚠️  Skipping Java system link (requires sudo). Java will still work via Homebrew."
+    fi
+fi
 
 # Add VS Code to PATH (if missing)
 if ! command -v code &> /dev/null; then
@@ -54,12 +66,27 @@ if ! command -v code &> /dev/null; then
 fi
 
 # --- STEP 5: CONFIGURE DIRECTORIES ---
-# Defines the specific Bentley OneDrive path
-ONE_DRIVE_DIR="$HOME/Library/CloudStorage/OneDrive-BentleyUniversity"
-TARGET_DIR="$ONE_DRIVE_DIR/CS180/source-code"
+# Try multiple common OneDrive locations
+ONEDRIVE_PATHS=(
+    "$HOME/Library/CloudStorage/OneDrive-BentleyUniversity"
+    "$HOME/Documents/OneDrive - Bentley University"
+    "$HOME/OneDrive - Bentley University"
+    "$HOME/OneDrive"
+)
 
-# Fallback to Documents if OneDrive isn't set up yet
-if [ ! -d "$ONE_DRIVE_DIR" ]; then
+ONE_DRIVE_DIR=""
+for path in "${ONEDRIVE_PATHS[@]}"; do
+    if [ -d "$path" ]; then
+        ONE_DRIVE_DIR="$path"
+        break
+    fi
+done
+
+# If OneDrive found, use it; otherwise fall back to Documents
+if [ -n "$ONE_DRIVE_DIR" ]; then
+    TARGET_DIR="$ONE_DRIVE_DIR/CS180/source-code"
+    echo "📂 Using OneDrive: $ONE_DRIVE_DIR"
+else
     echo "⚠️  OneDrive not found. Using Documents/CS180 instead."
     TARGET_DIR="$HOME/Documents/CS180/source-code"
 fi

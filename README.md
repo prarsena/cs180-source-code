@@ -7,7 +7,12 @@
 For Mac, open Terminal and paste this command: 
 
 ```bash
-curl -sSL https://raw.githubusercontent.com/prarsena/cs180-source-code/main/scripts/setup.sh | bash
+# Download the script first
+curl -sSL https://raw.githubusercontent.com/prarsena/cs180-source-code/main/scripts/setup.sh -o ~/setup.sh
+
+# Make it executable and run it
+chmod +x ~/setup.sh
+bash ~/setup.sh
 ```
 
 Notes:
