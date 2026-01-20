@@ -9,3 +9,4 @@
 *.class
 *.jar
 *.war
+**/.DS_STORE

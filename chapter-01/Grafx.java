@@ -9,7 +9,7 @@ import java.util.Scanner;
 import javax.imageio.ImageIO;
 import javax.swing.JFileChooser;
 
-public class Graphics {
+public class Grafx {
 	public static void main(String... args) throws Exception {
 		JFileChooser fileChooser = new JFileChooser();
 		fileChooser.setCurrentDirectory(new File(System.getProperty("user.home")));
