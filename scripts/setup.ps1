@@ -46,6 +46,10 @@ winget install -e --id Git.Git --source winget --silent --accept-source-agreemen
 Write-Host "📦 Installing OpenJDK 25 (Java)..." -ForegroundColor Cyan
 winget install -e --id Oracle.JDK.25 --source winget --silent --accept-source-agreements --accept-package-agreements
 
+# Refresh environment variables immediately so git and code work in this terminal
+Write-Host "🔄 Refreshing environment variables..." -ForegroundColor Cyan
+$env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path","User")
+
 # --- STEP 3: CONFIGURE DIRECTORIES ---
 # We use your Bentley OneDrive to ensure your work is backed up automatically.
 
