@@ -125,8 +125,19 @@ cat <<EOF > "$TARGET_DIR/.vscode/settings.json"
     "terminal.integrated.defaultProfile.osx": "zsh",
     "editor.minimap.enabled": false,
     "java.view.package.enabled": false,
+    "java.configuration.runtimes": [
+        {
+            "name": "JavaSE-25",
+            "path": "/opt/homebrew/opt/openjdk/libexec/openjdk.jdk/Contents/Home",
+            "default": true
+        }
+    ],
+    "java.jdt.ls.java.home": "/opt/homebrew/opt/openjdk/libexec/openjdk.jdk/Contents/Home",
     "editor.inlineSuggest.enabled": false,
     "editor.suggest.showInlineDetails": false,
+    "github.copilot.enable": {
+        "*": false
+    },
     "chat.mcp.gallery.enabled": false,
     "vsintellicode.modify.editor.suggestSelection": "disabled"
 }

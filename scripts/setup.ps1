@@ -148,6 +148,9 @@ $settingsContent = @'
     "java.view.package.enabled": false,
     "editor.inlineSuggest.enabled": false,
     "editor.suggest.showInlineDetails": false,
+    "github.copilot.enable": {
+        "*": false
+    },
     "editor.minimap.enabled": false,
     "chat.mcp.gallery.enabled": false,
     "vsintellicode.modify.editor.suggestSelection": "disabled"
