@@ -38,13 +38,13 @@ Write-Host "✅ Permissions good! Starting setup..." -ForegroundColor Green
 # The '--silent' flag prevents pop-up windows from interrupting you.
 
 Write-Host "📦 Installing VS Code..." -ForegroundColor Cyan
-winget install -e --id Microsoft.VisualStudioCode --silent --accept-source-agreements --accept-package-agreements
+winget install -e --id Microsoft.VisualStudioCode --source winget --silent --accept-source-agreements --accept-package-agreements
 
 Write-Host "📦 Installing Git (Version Control)..." -ForegroundColor Cyan
-winget install -e --id Git.Git --silent --accept-source-agreements --accept-package-agreements
+winget install -e --id Git.Git --source winget --silent --accept-source-agreements --accept-package-agreements
 
 Write-Host "📦 Installing OpenJDK 25 (Java)..." -ForegroundColor Cyan
-winget install -e --id Oracle.JDK.25 --silent --accept-source-agreements --accept-package-agreements
+winget install -e --id Oracle.JDK.25 --source winget --silent --accept-source-agreements --accept-package-agreements
 
 # --- STEP 3: CONFIGURE DIRECTORIES ---
 # We use your Bentley OneDrive to ensure your work is backed up automatically.
