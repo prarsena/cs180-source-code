@@ -175,8 +175,17 @@ $settingsContent = @'
     ],
     "java.jdt.ls.java.home": "__JDK_HOME__",
     "java.view.package.enabled": false,
+    "java.import.exclusions": [
+        "**/node_modules/**",
+        "**/.metadata/**",
+        "**/archetype-resources/**",
+        "**/META-INF/maven/**",
+        "**/*.txt"
+    ],
     "editor.inlineSuggest.enabled": false,
     "editor.suggest.showInlineDetails": false,
+    "chat.titleBar.signIn.enabled": false,
+    "chat.titleBar.openInAgentsWindow.enabled": false,
     "github.copilot.enable": {
         "*": false
     },

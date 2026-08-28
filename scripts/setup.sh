@@ -43,20 +43,37 @@ brew install --cask visual-studio-code
 
 # --- STEP 4: LINK JAVA & TOOLS ---
 echo "🔗 Linking Java 25 to System Paths..."
+
+# Resolve the real JDK home once (prefix differs between Apple Silicon /opt/homebrew and Intel /usr/local)
+# so it can be reused below for JAVA_HOME and for the VS Code settings we generate later.
+BREW_JAVA_PREFIX=$(brew --prefix openjdk)
+JDK_HOME="$BREW_JAVA_PREFIX/libexec/openjdk.jdk/Contents/Home"
+
 # This sudo command allows 'java --version' to work system-wide
 echo "   You may be prompted for your password to link Java system-wide..."
 if sudo -n true 2>/dev/null; then
     # Already have sudo privileges
-    sudo ln -sfn "$(brew --prefix openjdk)/libexec/openjdk.jdk" /Library/Java/JavaVirtualMachines/openjdk.jdk 2>/dev/null
+    sudo ln -sfn "$BREW_JAVA_PREFIX/libexec/openjdk.jdk" /Library/Java/JavaVirtualMachines/openjdk.jdk 2>/dev/null
 else
     # Request sudo access, but don't fail the script if user cancels
     if sudo -v 2>/dev/null; then
-        sudo ln -sfn "$(brew --prefix openjdk)/libexec/openjdk.jdk" /Library/Java/JavaVirtualMachines/openjdk.jdk 2>/dev/null
+        sudo ln -sfn "$BREW_JAVA_PREFIX/libexec/openjdk.jdk" /Library/Java/JavaVirtualMachines/openjdk.jdk 2>/dev/null
         echo "✅ Java linked successfully."
     else
         echo "⚠️  Skipping Java system link (requires sudo). Java will still work via Homebrew."
     fi
 fi
+
+# Persist JAVA_HOME so terminals (not just VS Code) find the right JDK regardless of what else is on PATH
+if ! grep -q "^export JAVA_HOME=\"$JDK_HOME\"" ~/.zprofile 2>/dev/null; then
+    echo "   Adding JAVA_HOME to Zsh profile..."
+    {
+        echo "export JAVA_HOME=\"$JDK_HOME\""
+        echo 'export PATH="$JAVA_HOME/bin:$PATH"'
+    } >> ~/.zprofile
+fi
+export JAVA_HOME="$JDK_HOME"
+export PATH="$JAVA_HOME/bin:$PATH"
 
 # Add VS Code to PATH (if missing)
 if ! command -v code &> /dev/null; then
@@ -110,7 +127,6 @@ code --install-extension formulahendry.code-runner --force
 
 # --- STEP 8: GENERATE MAC SETTINGS ---
 mkdir -p "$TARGET_DIR/.vscode"
-BREW_JAVA_PATH=$(brew --prefix openjdk)
 
 cat <<EOF > "$TARGET_DIR/.vscode/settings.json"
 {
@@ -128,13 +144,22 @@ cat <<EOF > "$TARGET_DIR/.vscode/settings.json"
     "java.configuration.runtimes": [
         {
             "name": "JavaSE-25",
-            "path": "/opt/homebrew/opt/openjdk/libexec/openjdk.jdk/Contents/Home",
+            "path": "$JDK_HOME",
             "default": true
         }
     ],
-    "java.jdt.ls.java.home": "/opt/homebrew/opt/openjdk/libexec/openjdk.jdk/Contents/Home",
+    "java.jdt.ls.java.home": "$JDK_HOME",
+    "java.import.exclusions": [
+        "**/node_modules/**",
+        "**/.metadata/**",
+        "**/archetype-resources/**",
+        "**/META-INF/maven/**",
+        "**/*.txt"
+    ],
     "editor.inlineSuggest.enabled": false,
     "editor.suggest.showInlineDetails": false,
+    "chat.titleBar.signIn.enabled": false,
+    "chat.titleBar.openInAgentsWindow.enabled": false,
     "github.copilot.enable": {
         "*": false
     },

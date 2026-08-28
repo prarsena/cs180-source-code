@@ -5,7 +5,7 @@ public class ReadFromFiles {
     public static void main(String[] args) throws IOException {
         
 
-        File numbersFile = new File("numbers.txt");
+        File numbersFile = new File("Numbers.txt");
         Scanner numbersInput = new Scanner(numbersFile);
         
         double fileTotal = 0.0;

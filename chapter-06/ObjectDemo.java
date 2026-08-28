@@ -18,7 +18,7 @@ public class ObjectDemo {
       Random rand = new Random();
       
       // Create a PrintWriter object to open the file.
-      PrintWriter outputFile = new PrintWriter("numbers.txt");
+      PrintWriter outputFile = new PrintWriter("new-numbers.txt");
       
       // Get the number of random numbers to write.
       System.out.print("How many random numbers should I write? ");
