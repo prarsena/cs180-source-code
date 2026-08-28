@@ -161,7 +161,7 @@ cat <<EOF > "$TARGET_DIR/.vscode/settings.json"
     "chat.titleBar.signIn.enabled": false,
     "chat.titleBar.openInAgentsWindow.enabled": false,
     "workbench.activityBar.location": "default", 
-    "chat.experimental.defaultToClosed": true 
+    "chat.experimental.defaultToClosed": true, 
     "github.copilot.enable": {
         "*": false
     },

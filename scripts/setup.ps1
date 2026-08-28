@@ -186,8 +186,8 @@ $settingsContent = @'
     "editor.suggest.showInlineDetails": false,
     "chat.titleBar.signIn.enabled": false,
     "chat.titleBar.openInAgentsWindow.enabled": false,
-    "workbench.activityBar.location": "default", 
-    "chat.experimental.defaultToClosed": true 
+    "workbench.activityBar.location": "default",
+    "chat.experimental.defaultToClosed": true,
     "github.copilot.enable": {
         "*": false
     },
