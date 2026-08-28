@@ -50,6 +50,30 @@ winget install -e --id Oracle.JDK.25 --source winget --silent --accept-source-ag
 Write-Host "🔄 Refreshing environment variables..." -ForegroundColor Cyan
 $env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path","User")
 
+# --- STEP 2b: LOCATE THE NEW JDK & FIX "javapath" CONFLICTS ---
+# Some Windows images ship with a legacy Oracle JRE that registers
+# "C:\Program Files\Common Files\Oracle\Java\javapath" ahead of everything else on PATH.
+# That shim can shadow the JDK we just installed, which breaks the Java extension.
+# Rather than fight PATH ordering, we find the real JDK folder and point JAVA_HOME /
+# the Java extension directly at it.
+$jdkHome = Get-ChildItem "C:\Program Files\Java" -Directory -Filter "jdk-25*" -ErrorAction SilentlyContinue |
+    Sort-Object Name -Descending | Select-Object -First 1 -ExpandProperty FullName
+
+if (-not $jdkHome) {
+    Write-Warning "⚠️ Could not locate the installed JDK under 'C:\Program Files\Java'. You may need to set java.jdt.ls.java.home manually in VS Code."
+} else {
+    Write-Host "   Found JDK at $jdkHome" -ForegroundColor Green
+    [Environment]::SetEnvironmentVariable("JAVA_HOME", $jdkHome, "Machine")
+    $env:JAVA_HOME = $jdkHome
+
+    $javaOnPath = (Get-Command java -ErrorAction SilentlyContinue).Source
+    if ($javaOnPath -and ($javaOnPath -notlike "$jdkHome*")) {
+        Write-Warning "⚠️ 'java' on PATH resolves to $javaOnPath, not the JDK we just installed."
+        Write-Host "   This is usually a legacy Oracle 'javapath' shortcut from an older Java install." -ForegroundColor Yellow
+        Write-Host "   JAVA_HOME has been set to $jdkHome so VS Code uses the correct runtime regardless of PATH order." -ForegroundColor Yellow
+    }
+}
+
 # --- STEP 3: CONFIGURE DIRECTORIES ---
 # We use your Bentley OneDrive to ensure your work is backed up automatically.
 
@@ -145,10 +169,11 @@ $settingsContent = @'
     "java.configuration.runtimes": [
         {
             "name": "JavaSE-25",
-            "path": "C:\\Program Files\\Java\\jdk-25",
+            "path": "__JDK_HOME__",
             "default": true
         }
     ],
+    "java.jdt.ls.java.home": "__JDK_HOME__",
     "java.view.package.enabled": false,
     "editor.inlineSuggest.enabled": false,
     "editor.suggest.showInlineDetails": false,
@@ -160,6 +185,10 @@ $settingsContent = @'
     "vsintellicode.modify.editor.suggestSelection": "disabled"
 }
 '@
+
+# Point the Java extension straight at the JDK we located earlier so it ignores PATH order/legacy javapath shims
+$resolvedJdkHome = if ($jdkHome) { $jdkHome } else { "C:\Program Files\Java\jdk-25" }
+$settingsContent = $settingsContent.Replace("__JDK_HOME__", $resolvedJdkHome.Replace("\", "\\"))
 
 $settingsContent | Out-File -FilePath "$settingsDir\settings.json" -Encoding utf8
 Write-Host "⚙️  Windows settings applied to .vscode/settings.json" -ForegroundColor Green
