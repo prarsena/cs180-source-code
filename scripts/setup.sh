@@ -136,7 +136,7 @@ cat <<EOF > "$TARGET_DIR/.vscode/settings.json"
     "code-runner.saveFileBeforeRun": true,
     "terminal.integrated.lineHeight": 1.2,
     "code-runner.executorMap": {
-        "java": "clear; cd \$dir; java \$fileName"
+        "java": "java \$fullFileName"
     },
     "terminal.integrated.defaultProfile.osx": "zsh",
     "editor.minimap.enabled": false,
