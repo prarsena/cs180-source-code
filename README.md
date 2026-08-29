@@ -46,7 +46,7 @@ If you want ensure the script I'm telling you to run is safe:
 3. **No Data Exfiltration**: There are no curl or upload commands sending your data out. There are only install commands bringing tools in.
 
 
-## 🛠️ Troubleshooting Your Java Environment
+## 🛠️ Troubleshooting 
 
 If clicking the "Play" button in VS Code doesn't work, verify these three components manually in your terminal:
 
@@ -61,6 +61,14 @@ Expected: An error message like error: no source file. This is actually good—i
 3. Verify VS Code Settings: Open a .java file. Look at the bottom right of the VS Code window. Does it say JavaSE-25?
 
 If not, click it and select JavaSE-25 from the list.
+
+---
+
+If your VS Code is opening, but you're not seeing what you expected:
+
+1. Ensure you have opened the source-code folder. Click **File** > **Open Folder**. Navigate to OneDrive, double-click **CS180**, then simply **click** on **source-code** and click **Open**. The top left of the VS Code Explorer should should say SOURCE-CODE, and you should see folders like `.vscode`, `chapter-01`, `chapter-02`, etc. 
+
+2. If you can open the CS180 folder, but there is only a `.vscode` directory inside it: (Carefully!) Delete the CS180 folder, and re-run the script for your operating system above. 
 
 # Manual Tooling Setup (Fallback)
 

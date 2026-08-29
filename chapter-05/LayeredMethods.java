@@ -1,4 +1,5 @@
 public class LayeredMethods {
+    // Method A calls method B.
     public static void methodA(){
         System.out.println("\tStarting Method A...");
         methodB();
@@ -11,6 +12,7 @@ public class LayeredMethods {
     }
 
     public static void main(String[] args) {
+        // Run the layered method calls.
         System.out.println("Starting program...");
         methodA();
         System.out.println("Finishing  program.");

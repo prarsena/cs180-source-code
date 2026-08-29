@@ -1,4 +1,5 @@
 public class CustomMethod{
+    // Print a house address with a color.
     public static void displayHouse(String color, int address, String streetname){
         System.out.println(address + " " + streetname + " is " + color);
     }
@@ -7,6 +8,7 @@ public class CustomMethod{
         System.out.println("Hello");
     }
 
+    // Return a pass/fail message based on score.
     public static String evaluateGrade(int score){
         if (score >= 60){
             return "You pass";
@@ -15,9 +17,9 @@ public class CustomMethod{
         }
     }
 
-
+    // Return the square of a number.
     public static int squareNumber(int number){
-        int numberSquared = number * number; 
+        int numberSquared = number * number;
         return numberSquared;
     }
 
@@ -27,26 +29,14 @@ public class CustomMethod{
     }
 
     public static void main(String[] args) {
-        
-        // String gradeEval = evaluateGrade(99);
-        // System.out.println(gradeEval);
-
-        // System.out.println(evaluateGrade(52));
-
+        // Use the custom methods to demonstrate calling code.
         int originalNumber = 185;
         System.out.println(originalNumber);
 
         int squared = squareNumber(originalNumber);
         System.out.println(squared);
-        
-        System.out.println(originalNumber);
 
-        // CustomMethod.greeting();
-        // Math.random();
-        // displayHouse("white", 99, "Smith St");
-        // String school = "Bentley";
-        // school.replace("entley", "abson");
-        // System.out.println();
+        System.out.println(originalNumber);
     }
 
 }

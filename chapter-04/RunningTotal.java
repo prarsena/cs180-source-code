@@ -2,6 +2,7 @@ import java.util.Scanner;
 
 public class RunningTotal {
     public static void main(String[] args) {
+        // Keep a running total as the user enters numbers.
         int runningTotal = 0; // The accumulator, initialized to 0
         Scanner kbd = new Scanner(System.in);
         System.out.print("Type a number: ");

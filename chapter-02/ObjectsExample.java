@@ -3,7 +3,8 @@ import java.util.Scanner;
 
 public class ObjectsExample {
     public static void main(String[] args) {
-        Scanner kbd = new Scanner(System.in);    
+        // Read a number from the keyboard and create a random object.
+        Scanner kbd = new Scanner(System.in);
 
         System.out.println("Enter the maximum boundary for a random number: ");
         int max = kbd.nextInt();

@@ -1,6 +1,6 @@
 public class StringCompareExample {
     public static void main(String[] args) {
-
+        // Compare strings safely using String methods.
         String str1 = "Hello";
         String str2 = "Hello";
         String str3 = "Goodbye";
@@ -15,13 +15,13 @@ public class StringCompareExample {
         } else {
             System.out.println("str1 and str3 are NOT equal.");
         }
-        
+
         String username1 = "Admin";
         String username2 = "admin";
 
         if (username1.equalsIgnoreCase(username2)) { // This is true
             System.out.println("Usernames are the same, ignoring case.");
         }
-        
+
     }
 }

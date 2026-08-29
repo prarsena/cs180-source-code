@@ -1,6 +1,6 @@
 public class PrintfExample {
     public static void main(String[] args) {
-        
+        // Show how printf and String.format can format output.
         String name = "Sarah";
         int age = 33;
         //double gpa = 3.76;
@@ -11,6 +11,6 @@ public class PrintfExample {
 
         String formattedOutput = String.format("Name: %s Salary: %,.2f", name, age, salary);
         System.out.printf(formattedOutput);
-    
+
     }
 }

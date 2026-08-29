@@ -2,6 +2,7 @@ import java.util.Scanner;
 
 public class LoopsReview {
     public static void main(String[] args) {
+        // Keep showing the menu until the user exits.
         int userChoice = 1;
         Scanner kbd = new Scanner(System.in);
         while (userChoice != 3){

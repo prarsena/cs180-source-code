@@ -2,6 +2,7 @@ import java.util.Scanner;
 
 public class StudentInfo {
     public static void main(String[] args) {
+        // Gather student data and print a report.
         String studentName = getStudentName();
         double score = getStudentScore(studentName);
         char grade = calculateGrade(score);
@@ -17,7 +18,7 @@ public class StudentInfo {
     }
 
     public static double getStudentScore(String studentName){
-        double score; 
+        double score;
         if (studentName.equalsIgnoreCase("Jackson")){
             score = 88;
         }
@@ -37,7 +38,7 @@ public class StudentInfo {
         char grade;
         if (score > 90){
             grade = 'A';
-        } 
+        }
         else if (score > 80){
             grade = 'B';
         }

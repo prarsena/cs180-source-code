@@ -2,6 +2,7 @@ import java.util.Scanner;
 
 public class Choices {
     public static void main(String[] args) {
+        // Repeat the menu until the user chooses to exit.
         int choice;
         Scanner kbd = new Scanner(System.in);
         do {
@@ -10,7 +11,7 @@ public class Choices {
             System.out.println("3. Exit");
             System.out.print("Enter your choice: ");
             choice = kbd.nextInt();
-            
+
             switch (choice) {
                 case 1 -> System.out.println("You selected option 1.\n");
                 case 2 -> System.out.println("You selected option 2.\n");

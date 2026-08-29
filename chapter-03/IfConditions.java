@@ -1,5 +1,6 @@
 public class IfConditions {
-    public static void main(String[] args) {        
+    public static void main(String[] args) {
+        // Simple if/else checks using a person's age.
         int age = 27;
 
         if (age < 21) System.out.println("You can't enter this bar.");

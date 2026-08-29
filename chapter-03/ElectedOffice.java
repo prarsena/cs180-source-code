@@ -1,10 +1,10 @@
 public class ElectedOffice {
     public static void main(String[] args) {
-        
+        // Check if a person meets office eligibility rules.
         int age = 40;
         boolean isUSCitizen = true;
         boolean isUSBorn = false;
-        
+
         if (age >= 35){
             System.out.println("You meet the age req for President.");
             if (isUSBorn){

@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class WhatIf {
     public static void main(String[] args) {
-        
+        // Ask the user whether to enter a custom name or use defaults.
         Scanner kbd = new Scanner(System.in);
 
         String fname = "Default-First-Name";

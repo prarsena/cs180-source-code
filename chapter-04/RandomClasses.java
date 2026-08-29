@@ -2,9 +2,9 @@ import java.io.*;
 import java.util.*;
 
 public class RandomClasses {
-    
+
     public static void main(String[] args) throws IOException {
-        
+        // Show several Java objects working together: Random, File, and String.
         Random randomNumber = new Random();
         IO.println(randomNumber);
         //Scanner kbd = new Scanner(System.in);

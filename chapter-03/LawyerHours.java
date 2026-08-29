@@ -1,7 +1,8 @@
 public class LawyerHours {
     public static void main(String[] args) {
+        // Make sure the lawyer bills at least 5 hours.
         int hours = 3;
-        
+
         int billableHours;
         if (hours < 5){
             billableHours = 5;

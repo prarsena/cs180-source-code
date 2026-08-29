@@ -5,22 +5,25 @@ public class BankBalance {
     private int id;
     private double balance;
 
-    // CONSTRUCTORS 
+    // A constructor that sets the name and ID.
     public BankBalance(String name, int id){
         this.name = name;
         this.id = id;
     }
 
+    // A constructor that generates a random account ID.
     public BankBalance(String name){
         this.name = name;
         Random accountId = new Random();
         this.id = accountId.nextInt(1000,10000);
     }
 
+    // Add money to the account balance.
     public void deposit(double money){
         this.balance += money;
     }
 
+    // Remove money if enough funds exist.
     public void withdrawal(double money){
         if (money > this.balance){
             System.out.println("-----Transaction Cancelled. Insufficent Funds.");
@@ -32,12 +35,12 @@ public class BankBalance {
 
     }
 
-    // SETTER 
+    // Set the balance for the account.
     public void setBalance(double balance) {
         this.balance = balance;
     }
 
-    // GETTERS
+    // Get the current balance.
     public double getBalance() {
         return balance;
     }
@@ -57,6 +60,6 @@ public class BankBalance {
     public String toString(){
         return "ID: " + id + "\nName: " + name +
                 "\nCurrent Balance: " + balance;
-    } 
+    }
 
 }

@@ -1,5 +1,6 @@
 public class BooleanExpressions {
     public static void main(String[] args) {
+        // Compare two numbers with boolean expressions.
         int x = 5;
         int y = 12;
         boolean isXGreaterThanY = x > y;
@@ -12,6 +13,7 @@ public class BooleanExpressions {
             System.out.println(y + "is greater than " + x);
         }
 
+        // A score can be used to set a boolean value.
         boolean passingScore = false;
         double score = 72.5;
 

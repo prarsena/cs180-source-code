@@ -1,7 +1,7 @@
 public class TerneryOperator {
     public static void main(String[] args) {
 
-        //Consider this `if-else` block:
+        // Consider this if-else block:
         int hours = 3;
         int billableHours;
 
@@ -10,12 +10,11 @@ public class TerneryOperator {
         } else {
             billableHours = hours;
         }
-        
+
         System.out.println(billableHours); // 5
 
-        //Using the ternary operator, 
-        //the assignment can be written in a single line:
-        int billableHoursT = (hours < 5) ? 5 : hours; 
+        // Using the ternary operator, the assignment can be written in one line.
+        int billableHoursT = (hours < 5) ? 5 : hours;
 
         System.out.println(billableHoursT); // 5
 

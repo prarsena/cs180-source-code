@@ -1,6 +1,6 @@
 public class LogicalNot {
     public static void main(String[] args) {
-        
+        // Demonstrate the ! operator for negation.
         boolean isLoggedIn = false;
 
         if(isLoggedIn){

@@ -3,9 +3,10 @@ import java.util.Scanner;
 
 public class CreatePasswordFile {
     public static void main(String[] args) throws IOException {
-        FileWriter fwriter = new FileWriter("UserData.txt", true); 
+        // Collect usernames and passwords from the user and save them to a file.
+        FileWriter fwriter = new FileWriter("UserData.txt", true);
         PrintWriter outputFile = new PrintWriter(fwriter);
-		Scanner kbd = new Scanner(System.in);
+        Scanner kbd = new Scanner(System.in);
         boolean addMoreUsers = true;
 
         while (addMoreUsers){
@@ -21,7 +22,7 @@ public class CreatePasswordFile {
                 addMoreUsers = false;
             }
         }
-        
+
         outputFile.close();
         kbd.close();
     }

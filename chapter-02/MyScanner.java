@@ -1,3 +1,4 @@
+// This example reads different kinds of input from the keyboard.
 import java.util.Scanner; // Required for Scanner
 
 public class MyScanner {

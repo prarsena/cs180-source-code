@@ -1,7 +1,7 @@
 public class ModernSwitch {
     public static void main(String[] args) {
-        
-        int month = 1; 
+        // Use switch expressions to map values to labels.
+        int month = 1;
         String monthName = switch(month){
             case 1 -> "January";
             case 2 -> "February";
@@ -9,8 +9,8 @@ public class ModernSwitch {
         };
         System.out.println("You were born in " + monthName);
 
-        
-        month = 9; 
+
+        month = 9;
         String quarterName = switch(month){
             case 1, 2, 3 -> "Q1";
             case 4, 5, 6 -> "Q2";
